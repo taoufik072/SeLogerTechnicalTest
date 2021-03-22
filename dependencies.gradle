@@ -1,0 +1,153 @@
+ext {
+    testLibsVersion = [
+            junit              : "4.12",
+            barista            : "3.1.0",
+            junitext           : "1.1.1",
+            mockito            : "3.3.3",
+            mockitoKotlin      : "2.2.0",
+            robolectric        : "4.2.1",
+            robolectricMultidex: "3.4.2",
+            kluent             : "1.61",
+            testcore           : "1.3.0",
+            coretesting        : "2.1.0",
+            espresso           : "3.2.0",
+            espressorecyclerview : "1.0",
+            mockk              : "1.10.6"
+
+    ]
+
+    testLibraries = [
+            /** https://github.com/junit-team/junit4 */
+            junit         : "junit:junit:$testLibsVersion.junit",
+            junitext      : "androidx.test.ext:junit:$testLibsVersion.junitext",
+
+            /** https://github.com/SchibstedSpain/Barista */
+            barista       : "com.schibsted.spain:barista:$testLibsVersion.barista",
+
+            /** https://github.com/mockito/mockito */
+            mockito       : "org.mockito:mockito-core:$testLibsVersion.mockito",
+            mockitoAndroid: "org.mockito:mockito-android:$testLibsVersion.mockito",
+            mockitoKotlin : "com.nhaarman.mockitokotlin2:mockito-kotlin:$testLibsVersion.mockitoKotlin",
+
+            /** https://github.com/robolectric/robolectric */
+            robolectric   : "org.robolectric:robolectric:$testLibsVersion.robolectric",
+
+            supportRunner : "androidx.test:runner:$testLibsVersion.supportRunner",
+
+            /** https://github.com/MarkusAmshove/Kluent */
+            kluent        : "org.amshove.kluent:kluent:$testLibsVersion.kluent",
+            kluentAndroid : "org.amshove.kluent:kluent-android:$testLibsVersion.kluent",
+            testcore      : "androidx.test:core:$testLibsVersion.testcore",
+            coretesting   : "androidx.arch.core:core-testing:$testLibsVersion.coretesting",
+
+            /** https://mockk.io/ */
+            mockk         : "io.mockk:mockk:$testLibsVersion.mockk",
+            mockkandroid  : "io.mockk:mockk-android:$testLibsVersion.mockk",
+
+            espresso         : "androidx.test.espresso:espresso-contrib:$testLibsVersion.coretesting",
+            espressorecyclerview         : "it.xabaras.android.espresso:recyclerview-child-actions:$testLibsVersion.espressorecyclerview"
+
+    ]
+
+    libsVersion = [
+            kotlin         : "1.3.72",
+            ktx            : "1.3.1",
+            constraint     : "1.1.3",
+            dagger         : "2.27",
+            dicheck        : "1.0.2",
+            glide          : "4.11.0",
+            gson           : "2.8.6",
+            javaxValidation: "2.0.1.Final",
+            retrofit2      : "2.8.1",
+            rxAndroid      : "2.0.2",
+            rxKotlin       : "2.2.0",
+            rxJava         : "2.1.7",
+            design         : "1.0.0-rc01",
+            androidX       : "1.1.0",
+            suppCardView   : "1.0.0",
+            timber         : "4.7.0",
+            okhttp         : "4.6.0",
+            threeTen       : "1.2.4",
+            navigation     : "2.2.2",
+            realmext       : "2.5.0",
+            conscrypt      : "2.2.1"
+
+    ]
+
+    libraries = [
+            kotlin                 : "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$libsVersion.kotlin",
+            ktx                    : "androidx.core:core-ktx:$libsVersion.ktx",
+
+            constraint             : "androidx.constraintlayout:constraintlayout:$libsVersion.constraint",
+
+            crashlytics            : "com.crashlytics.sdk.android:crashlytics:$libsVersion.crashlytics",
+
+            /** https://github.com/google/dagger */
+            dagger                 : "com.google.dagger:dagger:$libsVersion.dagger",
+            daggerCompiler         : "com.google.dagger:dagger-compiler:$libsVersion.dagger",
+            daggerAndroid          : "com.google.dagger:dagger-android:$libsVersion.dagger",
+            daggerAndroidSupp      : "com.google.dagger:dagger-android-support:$libsVersion.dagger",
+            daggerAndroidCompiler  : "com.google.dagger:dagger-android-processor:$libsVersion.dagger",
+
+            /** https://github.com/groupon/dependency-injection-checks */
+            diCheck                : "com.groupon.android.dichecks:compiler:$libsVersion.dicheck",
+
+            /** https://github.com/bumptech/glide */
+            glide                  : "com.github.bumptech.glide:glide:$libsVersion.glide",
+            glideCompiler          : "com.github.bumptech.glide:compiler:$libsVersion.glide",
+
+            /** https://github.com/google/gson */
+            gson                   : "com.google.code.gson:gson:$libsVersion.gson",
+
+            /** https://mvnrepository.com/artifact/javax.validation/validation-api */
+            javaxValidation        : "javax.validation:validation-api:$libsVersion.javaxValidation",
+
+            /** https://github.com/JakeWharton/retrofit2-rxjava2-adapter */
+            retrofit2RxJava2Adapter: "com.squareup.retrofit2:adapter-rxjava2:$libsVersion.retrofit2",
+
+            /** https://github.com/square/retrofit */
+            retrofit2              : "com.squareup.retrofit2:retrofit:$libsVersion.retrofit2",
+            retrofit2ConverterGson : "com.squareup.retrofit2:converter-gson:$libsVersion.retrofit2",
+
+            /** https://github.com/square/retrofit/tree/master/retrofit-adapters/rxjava2 */
+            retrofit2Adapter       : "com.squareup.retrofit2:adapter-rxjava2:$libsVersion.retrofit2",
+
+            /** https://github.com/ReactiveX/RxAndroid */
+            rxAndroid              : "io.reactivex.rxjava2:rxandroid:$libsVersion.rxAndroid",
+
+            /** https://github.com/ReactiveX/RxJava */
+            rxJava                 : "io.reactivex.rxjava2:rxjava:$libsVersion.rxJava",
+
+            /** https://github.com/ReactiveX/RxKotlin */
+            rxKotlin               : "io.reactivex.rxjava2:rxkotlin:$libsVersion.rxKotlin",
+
+            /** Android x */
+            supportAnnotations     : "androidx.annotation:annotation:$libsVersion.androidX",
+            supportAppCompat       : "androidx.appcompat:appcompat:$libsVersion.androidX",
+            supportRecyclerView    : "androidx.recyclerview:recyclerview:$libsVersion.androidX",
+            supportCardView        : "androidx.cardview:cardview:$libsVersion.suppCardView",
+
+
+            /** Design */
+            design                 : "com.google.android.material:material:$libsVersion.design",
+
+
+            /** https://github.com/JakeWharton/timber */
+            timber                 : "com.jakewharton.timber:timber:$libsVersion.timber",
+
+            /** https://github.com/square/okhttp */
+            okhttpLogInterceptor   : "com.squareup.okhttp3:logging-interceptor:$libsVersion.okhttp",
+            /** https://github.com/google/conscrypt#android **/
+            conscrypt              : "org.conscrypt:conscrypt-android:$libsVersion.conscrypt",
+
+            /** https://github.com/JakeWharton/ThreeTenABP */
+            threeTen               : "com.jakewharton.threetenabp:threetenabp:$libsVersion.threeTen",
+
+            navigation             : "android.arch.navigation:navigation-fragment-ktx:$libsVersion.navigation",
+            navigationUi           : "android.arch.navigation:navigation-ui-ktx:$libsVersion.navigation",
+
+            /** https://github.com/vicpinm/Kotlin-Realm-Extensions */
+            realmext               : "com.github.vicpinm:krealmextensions:$libsVersion.realmext",
+
+    ]
+}

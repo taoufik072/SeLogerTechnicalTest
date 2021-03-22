@@ -1,0 +1,7 @@
+include ':presentationlayer'
+include ':domainlayer'
+include ':datalayer'
+include ':commons-android'
+include ':commons'
+include ':app'
+rootProject.name = "SeLogerTest"

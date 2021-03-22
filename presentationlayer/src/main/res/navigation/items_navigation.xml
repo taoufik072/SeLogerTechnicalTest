@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/item_navigation"
+    app:startDestination="@id/itemListingFragment">
+
+    <fragment
+        android:id="@+id/itemListingFragment"
+        android:name="fr.benguiza.selogertest.ui.item.listing.ItemsListingFragment"
+        android:label="ItemListingFragment"
+        tools:layout="@layout/fragment_item_listing">
+        <action
+            android:id="@+id/action_itemListingFragment_to_itemDetailsFragment"
+            app:destination="@id/itemDetailsFragment" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/itemDetailsFragment"
+        android:name="fr.benguiza.selogertest.ui.item.details.ItemDetailsFragment"
+        android:label="ItemDetailsFragment"
+        tools:layout="@layout/fragment_item_details" />
+
+</navigation>

@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- Guidelines -->
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/view_guideline_start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="16dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/view_guideline_middle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent=".5" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/view_guideline_end"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="16dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/view_guideline_thumb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="225dp" />
+
+        <!-- Image -->
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/view_item_image"
+            android:layout_width="0dp"
+            android:layout_height="240dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- City Text -->
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/city_text"
+            style="@style/TTextView.Details"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:background="@drawable/bg_button_rounded_blue"
+            android:gravity="center"
+            android:paddingStart="8dp"
+            android:paddingTop="4dp"
+            android:paddingEnd="8dp"
+            android:paddingBottom="4dp"
+            android:textAllCaps="false"
+            app:layout_constraintStart_toEndOf="@id/view_guideline_start"
+            app:layout_constraintTop_toTopOf="@id/view_guideline_thumb"
+            tools:text="city" />
+
+        <!-- rooms -->
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/view_item_property_rooms"
+            style="@style/TTextView.Details"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toStartOf="@id/view_guideline_middle"
+            app:layout_constraintStart_toEndOf="@id/view_guideline_start"
+            app:layout_constraintTop_toBottomOf="@id/city_text"
+            android:textAllCaps="false"
+            tools:text="rooms" />
+
+        <!-- bedrooms -->
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/view_item_property_bedrooms"
+            style="@style/TTextView.Details"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textAllCaps="false"
+            app:layout_constraintEnd_toStartOf="@id/view_guideline_end"
+            app:layout_constraintStart_toEndOf="@id/view_guideline_middle"
+            app:layout_constraintTop_toTopOf="@id/view_item_property_rooms"
+            tools:text="bedrooms" />
+
+        <!-- Area -->
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/view_item_area"
+            style="@style/TTextView.Details"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:textAllCaps="false"
+            app:layout_constraintEnd_toStartOf="@id/view_guideline_end"
+            app:layout_constraintStart_toEndOf="@id/view_guideline_start"
+            app:layout_constraintTop_toBottomOf="@id/view_item_property_rooms"
+            tools:text="Area" />
+
+        <!-- price -->
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/view_item_price"
+            style="@style/TTextView.Details"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:textAllCaps="false"
+            app:layout_constraintEnd_toStartOf="@id/view_guideline_end"
+            app:layout_constraintStart_toEndOf="@id/view_guideline_start"
+            app:layout_constraintTop_toBottomOf="@id/view_item_area"
+            tools:text="price" />
+
+        <!-- professional -->
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/view_item_professional"
+            style="@style/TTextView.Details"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:textAllCaps="false"
+            app:layout_constraintEnd_toStartOf="@id/view_guideline_end"
+            app:layout_constraintStart_toEndOf="@id/view_guideline_start"
+            app:layout_constraintTop_toBottomOf="@id/view_item_price"
+            tools:text="professional" />
+
+        <!-- propertyType -->
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/view_item_property_type"
+            style="@style/TTextView.Details"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:textAllCaps="false"
+            app:layout_constraintEnd_toStartOf="@id/view_guideline_end"
+            app:layout_constraintStart_toEndOf="@id/view_guideline_start"
+            app:layout_constraintTop_toBottomOf="@id/view_item_professional"
+            tools:text="propertyType" />
+
+
+        <include
+            layout="@layout/view_error"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <include
+            layout="@layout/view_loading"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

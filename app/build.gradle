@@ -1,0 +1,146 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'realm-android'
+
+android {
+    compileSdkVersion 29
+
+    defaultConfig {
+        multiDexEnabled true
+
+        minSdkVersion Integer.parseInt(minSdkVersionVar)
+        targetSdkVersion Integer.parseInt(targetSdkVersionVar)
+
+        versionCode computeVersionCode()
+        versionName computeProdVersionName()
+        version versionName
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+
+        proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro',
+                "${rootProject.projectDir}/proguard/proguard-gson.txt",
+                "${rootProject.projectDir}/proguard/proguard-okhttp.txt",
+                "${rootProject.projectDir}/proguard/proguard-retrofit.txt",
+                "${rootProject.projectDir}/proguard/proguard-glide.txt"
+
+        testProguardFiles getDefaultProguardFile('proguard-android-optimize.txt'),
+                "${rootProject.projectDir}/proguard/proguard-tests.txt"
+    }
+
+    buildTypes {
+        debug {
+            debuggable true
+            minifyEnabled false
+            shrinkResources false
+            buildConfigField "boolean", "LOG_ENABLE", "true"
+
+        }
+
+        release {
+            debuggable false
+            minifyEnabled true
+            shrinkResources true
+            zipAlignEnabled true
+            buildConfigField "boolean", "LOG_ENABLE", "false"
+        }
+    }
+
+
+    flavorDimensions "default"
+
+    productFlavors {
+
+        dev {
+            dimension "default"
+            versionName computeVersionName()
+            applicationIdSuffix ".dev"
+        }
+
+        qualif {
+            dimension "default"
+            versionName computeVersionName()
+            applicationIdSuffix ".qualif"
+        }
+
+
+        prod {
+            dimension "default"
+            applicationId "fr.benguiza.MyApplication"
+        }
+    }
+
+    applicationVariants.all { variant ->
+        variant.outputs.all {
+            outputFileName = "Test-V${variant.versionName}-${variant.flavorName}-${variant.buildType.name}.apk"
+        }
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+
+    packagingOptions {
+        exclude 'META-INF/rxjava.properties'
+        exclude 'javax/annotation/**'
+        exclude 'signing/**'
+    }
+
+    compileOptions {
+        sourceCompatibility = 1.8
+        targetCompatibility = 1.8
+    }
+}
+
+
+dependencies {
+    kapt libraries.diCheck
+    kapt libraries.daggerCompiler
+    kapt libraries.daggerAndroidCompiler
+    kapt libraries.glideCompiler
+
+    implementation project(':commons')
+    implementation project(':commons-android')
+    implementation project(':domainlayer')
+    implementation project(':datalayer')
+    implementation project(':presentationlayer')
+
+    implementation libraries.kotlin
+    implementation libraries.ktx
+
+    implementation libraries.dagger
+    implementation libraries.daggerAndroid
+    implementation libraries.daggerAndroidSupp
+
+
+    implementation libraries.retrofit2RxJava2Adapter
+    implementation libraries.retrofit2ConverterGson
+    implementation libraries.okhttpLogInterceptor
+    implementation libraries.javaxValidation
+    implementation libraries.timber
+    implementation libraries.threeTen
+    implementation libraries.realmext
+    implementation libraries.glide
+
+    implementation libraries.conscrypt
+
+    implementation libraries.rxJava
+    implementation libraries.rxKotlin
+
+    androidTestImplementation testLibraries.supportRunner
+    androidTestImplementation testLibraries.junit
+    androidTestImplementation testLibraries.mockitoKotlin
+    androidTestImplementation testLibraries.mockitoAndroid
+
+    androidTestImplementation testLibraries.kluentAndroid
+    androidTestImplementation testLibraries.barista
+
+    androidTestImplementation testLibraries.espresso
+    androidTestImplementation testLibraries.espressorecyclerview
+
+    androidTestImplementation testLibraries.mockkandroid
+
+    androidTestImplementation testLibraries.coretesting
+}

@@ -1,0 +1,106 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion Integer.parseInt(compileSdkVersionVar)
+
+    defaultConfig {
+
+        multiDexEnabled true
+
+        minSdkVersion Integer.parseInt(minSdkVersionVar)
+        targetSdkVersion Integer.parseInt(targetSdkVersionVar)
+        buildToolsVersion buildToolVersionVar
+        versionCode 1
+        versionName "1.0"
+
+
+        vectorDrawables.useSupportLibrary = true
+
+
+        testBuildType 'debug'
+        resConfig "fr"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    // For Parcelize feature
+    androidExtensions {
+        experimental = true
+        defaultCacheImplementation = "none"
+    }
+
+    testOptions {
+        unitTests {
+            includeAndroidResources = true
+        }
+    }
+
+}
+configurations.all {
+    resolutionStrategy.eachDependency { DependencyResolveDetails details ->
+        def requested = details.requested
+        if (requested.group == "com.android.support") {
+            if (!requested.name.startsWith("multidex")) {
+                details.useVersion "26.+"
+            }
+        }
+    }
+}
+dependencies {
+    implementation project(':commons')
+    implementation project(':commons-android')
+    implementation project(':domainlayer')
+
+    kapt libraries.daggerCompiler
+    kapt libraries.daggerAndroidCompiler
+    kapt libraries.glide
+
+    implementation libraries.kotlin
+    implementation libraries.ktx
+    implementation libraries.constraint
+    implementation libraries.dagger
+    implementation libraries.daggerAndroid
+    implementation libraries.daggerAndroidSupp
+    implementation libraries.supportAppCompat
+    implementation libraries.supportRecyclerView
+    implementation libraries.supportCardView
+    implementation libraries.design
+    implementation libraries.rxJava
+    implementation libraries.rxKotlin
+    implementation libraries.threeTen
+    implementation libraries.navigation
+    implementation libraries.navigationUi
+    implementation libraries.glide
+    def paging_version = "2.1.2"
+
+    implementation "androidx.paging:paging-runtime:$paging_version" // For Kotlin use paging-runtime-ktx
+
+    // alternatively - without Android dependencies for testing
+    testImplementation "androidx.paging:paging-common:$paging_version" // For Kotlin use paging-common-ktx
+
+    // optional - RxJava support
+    implementation "androidx.paging:paging-rxjava2:$paging_version"
+
+    // Unit tests
+    testImplementation testLibraries.junit
+    testImplementation testLibraries.mockitoKotlin
+    testImplementation testLibraries.kluent
+    testImplementation testLibraries.kluentAndroid
+    testImplementation testLibraries.robolectric
+
+    testImplementation testLibraries.testcore
+    testImplementation testLibraries.mockk
+    testImplementation testLibraries.coretesting
+
+    testImplementation 'com.google.truth:truth:' + "1.0.1"
+    testAnnotationProcessor 'com.google.auto.service:auto-service:1.0-rc4'
+
+}

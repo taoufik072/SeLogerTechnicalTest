@@ -1,0 +1,57 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'realm-android'
+
+android {
+    compileSdkVersion Integer.parseInt(compileSdkVersionVar)
+
+    defaultConfig {
+        minSdkVersion Integer.parseInt(minSdkVersionVar)
+        targetSdkVersion Integer.parseInt(targetSdkVersionVar)
+        buildToolsVersion buildToolVersionVar
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    compileOptions {
+        sourceCompatibility 1.8
+        targetCompatibility 1.8
+    }
+
+    buildTypes {
+        debug {}
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation project(':domainlayer')
+    implementation project(':commons')
+    implementation project(':commons-android')
+
+    implementation libraries.kotlin
+    implementation libraries.okhttpLogInterceptor
+    implementation libraries.retrofit2
+    implementation libraries.retrofit2ConverterGson
+    implementation libraries.retrofit2Adapter
+    implementation libraries.gson
+    implementation libraries.rxJava
+    implementation libraries.supportAnnotations
+    implementation libraries.threeTen
+    implementation libraries.realmext
+
+    // Unit tests
+    testImplementation testLibraries.junit
+    testImplementation testLibraries.mockito
+    testImplementation testLibraries.kluent
+    testImplementation testLibraries.kluentAndroid
+    testImplementation testLibraries.mockitoKotlin
+    testImplementation testLibraries.robolectric
+}

@@ -1,0 +1,42 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion Integer.parseInt(compileSdkVersionVar)
+
+    defaultConfig {
+        minSdkVersion Integer.parseInt(minSdkVersionVar)
+        targetSdkVersion Integer.parseInt(targetSdkVersionVar)
+        buildToolsVersion buildToolVersionVar
+        versionCode 1
+        versionName "1.0"
+    }
+
+    compileOptions {
+        sourceCompatibility 1.8
+        targetCompatibility 1.8
+    }
+
+    buildTypes {
+        debug{
+            minifyEnabled false
+            buildConfigField "boolean", "IS_TESTING", "false"
+        }
+        release {
+            minifyEnabled false
+            buildConfigField "boolean", "IS_TESTING", "false"
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    implementation project(':commons')
+
+    implementation libraries.kotlin
+    implementation libraries.threeTen
+    implementation libraries.rxJava
+    implementation libraries.rxAndroid
+}

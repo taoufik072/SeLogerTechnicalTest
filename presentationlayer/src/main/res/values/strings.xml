@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_nam">SeLoger</string>
+    <string name="error_title">Erreur !</string>
+    <string name="error_message">Nous rencontrons actuellement un problème </string>
+    <string name="error_action">Réessayer</string>
+    <string name="loading_message">Chargement en cours</string>
+    <string name="propertyType_text">Type de propriété : %s </string>
+    <plurals name="bedroom_text">
+        <item quantity="one">Une chambre</item>
+        <item quantity="other">%d chambres</item>
+    </plurals>
+    <plurals name="room_text">
+        <item quantity="one">Une piéce</item>
+        <item quantity="other">%d piéces</item>
+    </plurals>
+
+</resources>

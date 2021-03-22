@@ -1,0 +1,83 @@
+<resources>
+
+    <!-- Buttons -->
+    <style name="TButton" parent="Base.Widget.AppCompat.Button">
+        <item name="android:clickable">true</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily">monospace</item>
+        <item name="android:foreground">?attr/selectableItemBackground</item>
+    </style>
+
+    <style name="TButton.Rounded.Blue" parent="TButton">
+        <item name="android:background">@drawable/bg_button_rounded_blue</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <!-- Toolbar -->
+    <style name="TextAppearance.TToolBar" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="android:fontFamily">monospace</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <style name="TToolBar" parent="Widget.AppCompat.Toolbar">
+        <item name="android:background">?attr/colorPrimary</item>
+        <item name="android:elevation">4dp</item>
+        <item name="titleTextAppearance">@style/TextAppearance.TToolBar</item>
+        <item name="android:popupTheme">@style/ThemeOverlay.AppCompat.Light</item>
+        <item name="titleMarginStart">40dp</item>
+    </style>
+
+    <!-- TextViews -->
+    <style name="TTextView" parent="TextAppearance.AppCompat">
+        <item name="android:textColorLink">@color/accent</item>
+        <item name="android:fontFamily">monospace</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+
+    <style name="TTextView.Titles" parent="TTextView">
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <style name="TTextView.Grey" parent="TTextView">
+        <item name="android:textColor">@android:color/darker_gray</item>
+    </style>
+
+    <style name="TTextView.Dark" parent="TTextView">
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+
+    <style name="TTextView.Details" parent="TTextView">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textAllCaps">true</item>
+    </style>
+
+    <!-- ProgressBar -->
+    <style name="TProgressBar" parent="Widget.AppCompat.ProgressBar">
+        <item name="android:progressTint">@color/accent</item>
+        <item name="android:indeterminateTint">@color/accent</item>
+    </style>
+
+    <!-- RecyclerView -->
+    <style name="TRecyclerView" parent="">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:fadeScrollbars">true</item>
+        <item name="android:scrollbarStyle">outsideOverlay</item>
+        <item name="android:overScrollMode">ifContentScrolls</item>
+        <item name="android:layout_margin">8dp</item>
+        <item name="layoutManager">androidx.recyclerview.widget.LinearLayoutManager</item>
+    </style>
+
+    <style name="TRecyclerView.Vertical">
+        <item name="android:orientation">vertical</item>
+        <item name="android:scrollbars">vertical</item>
+    </style>
+</resources>
